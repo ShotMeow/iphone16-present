@@ -26,7 +26,7 @@ const HeroSection: FC = () => {
   }, []);
 
   return (
-    <section className="container mb-8 flex min-h-[calc(100vh-56px)] flex-col items-center justify-center">
+    <section className="container mb-8 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center">
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
