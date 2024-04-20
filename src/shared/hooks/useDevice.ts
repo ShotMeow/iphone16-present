@@ -1,28 +1,32 @@
 import { useEffect, useState } from "react";
 
 export const useDevice = () => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
+  const hasWindow = typeof window !== "undefined";
+
+  const [isDesktop, setIsDesktop] = useState<boolean>();
+  const [isMobile, setIsMobile] = useState<boolean>();
 
   useEffect(() => {
-    const updateDevice = () => {
-      if (window.innerWidth < 1200) {
-        setIsMobile(true);
-        setIsDesktop(false);
-      } else {
-        setIsMobile(false);
-        setIsDesktop(true);
-      }
-    };
+    if (hasWindow) {
+      const updateDevice = () => {
+        if (window.innerWidth < 1200) {
+          setIsMobile(true);
+          setIsDesktop(false);
+        } else {
+          setIsMobile(false);
+          setIsDesktop(true);
+        }
+      };
 
-    updateDevice();
+      updateDevice();
 
-    window.addEventListener("resize", updateDevice);
+      window.addEventListener("resize", updateDevice);
 
-    return () => {
-      window.removeEventListener("resize", updateDevice);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("resize", updateDevice);
+      };
+    }
+  }, [hasWindow]);
 
   return { isDesktop, isMobile };
 };

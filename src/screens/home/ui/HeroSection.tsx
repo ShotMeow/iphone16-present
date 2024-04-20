@@ -6,11 +6,7 @@ import { useDevice } from "@/shared/hooks/useDevice";
 import Button from "@/shared/ui/Button";
 
 const HeroSection: FC = () => {
-  const { isDesktop } = useDevice();
-
-  const [videoUrl, setVideoUrl] = useState(
-    isDesktop ? "/videos/hero-desktop.mp4" : "/videos/hero-mobile.mp4",
-  );
+  const [videoUrl, setVideoUrl] = useState<string>("");
 
   useEffect(() => {
     const handleVideoSrcSet = () => {
@@ -21,6 +17,8 @@ const HeroSection: FC = () => {
       }
     };
 
+    handleVideoSrcSet();
+
     window.addEventListener("resize", handleVideoSrcSet);
 
     return () => {
@@ -29,7 +27,7 @@ const HeroSection: FC = () => {
   }, []);
 
   return (
-    <section className="container flex min-h-[calc(100vh-56px)] flex-col items-center justify-center">
+    <section className="container flex min-h-[calc(100vh-56px)] flex-col items-center justify-center mb-8">
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
