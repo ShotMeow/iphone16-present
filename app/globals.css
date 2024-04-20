@@ -5,3 +5,31 @@
 body {
     @apply bg-black text-white;
 }
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    @apply rounded-full bg-black/0;
+}
+
+*::-webkit-scrollbar-track:hover {
+    @apply bg-black/0;
+}
+
+*::-webkit-scrollbar-track:active {
+    @apply bg-black/0;
+}
+
+*::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-900;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-800;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    @apply bg-gray-800;
+}

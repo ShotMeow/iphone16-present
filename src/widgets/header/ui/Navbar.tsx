@@ -3,10 +3,11 @@ import { type FC, useEffect } from "react";
 import Link from "next/link";
 import { stagger, useAnimate } from "framer-motion";
 
-import Logo from "@/src/widgets/header/ui/Logo";
-import Search from "@/src/shared/ui/icons/Search";
-import Bag from "@/src/shared/ui/icons/Bag";
-import { useDevice } from "@/src/shared/hooks/useDevice";
+import Logo from "@/widgets/header/ui/Logo";
+import Search from "@/shared/ui/icons/Search";
+import Bag from "@/shared/ui/icons/Bag";
+
+import { useDevice } from "@/shared/hooks/useDevice";
 
 const Navbar: FC = () => {
   const [scope, animate] = useAnimate();

@@ -1,7 +1,8 @@
 import type { FC } from "react";
+import { HomeScreen } from "@/screens/home";
 
 const HomePage: FC = () => {
-  return <main></main>;
+  return <HomeScreen />;
 };
 
 export default HomePage;

@@ -4,5 +4,8 @@
     "standard",
     "plugin:tailwindcss/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "import/no-absolute-path": "off"
+  }
 }

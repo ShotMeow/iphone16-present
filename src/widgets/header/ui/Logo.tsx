@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import Link from "next/link";
 
-import Apple from "@/src/shared/ui/icons/Apple";
+import Apple from "@/shared/ui/icons/Apple";
 
 const Logo: FC = () => {
   return (
