@@ -2,7 +2,6 @@
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import { useDevice } from "@/shared/hooks/useDevice";
 import Button from "@/shared/ui/Button";
 
 const HeroSection: FC = () => {
@@ -27,7 +26,7 @@ const HeroSection: FC = () => {
   }, []);
 
   return (
-    <section className="container flex min-h-[calc(100vh-56px)] flex-col items-center justify-center mb-8">
+    <section className="container mb-8 flex min-h-[calc(100vh-56px)] flex-col items-center justify-center">
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
