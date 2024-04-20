@@ -13,57 +13,57 @@ const Navbar: FC = () => {
   const { isDesktop } = useDevice();
 
   useEffect(() => {
-    animate("li", { opacity: 1 }, { delay: stagger(0.1) });
+    animate("li", { opacity: [0, 1] }, { delay: stagger(0.1) });
   });
 
   return (
     <nav ref={scope}>
       <ul className="flex items-center justify-between gap-8 text-sm text-zinc-500">
-        <li className="opacity-0">
+        <li>
           <Logo />
         </li>
         {isDesktop && (
           <div className="flex w-full items-center justify-between">
-            <li className="opacity-0">
+            <li>
               <Link href="/">Store</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Mac</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">iPad</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">iPhone</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Watch</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Vision</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">AirPods</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">TV & Home</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Entertainment</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Accessories</Link>
             </li>
-            <li className="opacity-0">
+            <li>
               <Link href="/">Support</Link>
             </li>
           </div>
         )}
         <div className="flex items-center justify-between gap-8 text-white">
-          <li className="opacity-0">
+          <li>
             <Search />
           </li>
-          <li className="opacity-0">
+          <li>
             <Bag />
           </li>
         </div>
