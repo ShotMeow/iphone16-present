@@ -1,9 +1,11 @@
 import type { Dispatch, FC, SetStateAction } from "react";
+import { motion } from "framer-motion";
+import { useSwiper } from "swiper/react";
+import classNames from "classnames";
+
 import Pause from "@/shared/ui/icons/Pause";
 import Play from "@/shared/ui/icons/Play";
 import Replay from "@/shared/ui/icons/Replay";
-import { useSwiper } from "swiper/react";
-import classNames from "classnames";
 
 interface Props {
   videoState: "playing" | "paused" | "ended";
@@ -21,7 +23,12 @@ const ControlPanel: FC<Props> = ({
   const swiper = useSwiper();
 
   return (
-    <div className="mt-10 flex items-center justify-center gap-2">
+    <motion.div
+      initial={{ opacity: 0, scaleX: 0 }}
+      whileInView={{ opacity: 1, scaleX: 1 }}
+      transition={{ duration: 1, type: "spring" }}
+      className="relative mt-10 flex items-center justify-center gap-2"
+    >
       <div className="flex h-14 items-center gap-2 rounded-full bg-white/10 px-8">
         <button
           onClick={() => {
@@ -104,7 +111,7 @@ const ControlPanel: FC<Props> = ({
           <Replay />
         )}
       </button>
-    </div>
+    </motion.div>
   );
 };
 
