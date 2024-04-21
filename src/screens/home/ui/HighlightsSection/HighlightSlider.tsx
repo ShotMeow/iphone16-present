@@ -1,10 +1,4 @@
-import {
-  type Dispatch,
-  type FC,
-  type SetStateAction,
-  useRef,
-  useState,
-} from "react";
+import { type Dispatch, type FC, type SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +6,6 @@ import "swiper/css";
 
 import HighlightSlide from "./HighlightSlide";
 import ControlPanel from "./ControlPanel";
-import { useIntersection } from "@/shared/hooks/useIntersection";
 
 interface Props {
   videoState: "playing" | "paused" | "ended";
