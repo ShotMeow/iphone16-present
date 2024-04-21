@@ -1,10 +1,16 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Button from "@/shared/ui/Button";
+import { useIntersection } from "@/shared/hooks/useIntersection";
 
 const HeroSection: FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const { isIntersecting } = useIntersection(sectionRef);
+
   const [videoUrl, setVideoUrl] = useState<string>("");
 
   useEffect(() => {
@@ -25,8 +31,17 @@ const HeroSection: FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current && isIntersecting) {
+      videoRef.current.currentTime = 0;
+    }
+  }, [isIntersecting]);
+
   return (
-    <section className="container mb-8 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center">
+    <section
+      ref={sectionRef}
+      className="container mb-8 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center"
+    >
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -39,13 +54,13 @@ const HeroSection: FC = () => {
         iPhone 16 Pro
       </motion.h1>
       <motion.video
+        ref={videoRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
           duration: 1,
           delay: 0.3,
         }}
-        className="pointer-events-none"
         autoPlay
         muted
         playsInline

@@ -1,4 +1,5 @@
 import type { FC } from "react";
+
 import HeroSection from "./HeroSection";
 import HighlightsSection from "./HighlightsSection";
 
