@@ -5,8 +5,8 @@ import Navbar from "./Navbar";
 const Header: FC = () => {
   return (
     <header>
-      <div className="fixed w-full">
-        <div className="container bg-black py-4">
+      <div className="fixed z-50 w-full bg-black">
+        <div className="container py-4">
           <Navbar />
         </div>
       </div>
