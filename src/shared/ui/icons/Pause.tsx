@@ -2,22 +2,18 @@ import type { FC, SVGAttributes } from "react";
 
 interface Props extends SVGAttributes<SVGSVGElement> {}
 
-const Pause: FC<Props> = ({ width = 24, height = 24, ...props }) => {
+const Pause: FC<Props> = ({ width = 56, height = 56, ...props }) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 56 56"
     >
-      <rect width="4" height="16" x="6" y="4" />
-      <rect width="4" height="16" x="14" y="4" />
+      <path
+        d="M23.9,38.5h-2.3c-1.3,0-2.3-1-2.3-2.2V19.7c0-1.3,1.1-2.3,2.3-2.2h2.3c1.3,0,2.3,1,2.3,2.2v16.5 C26.2,37.5,25.2,38.5,23.9,38.5 M34.4,38.5c1.3,0,2.3-1,2.3-2.2V19.7c0-1.3-1.1-2.3-2.3-2.2h-2.3c-1.3,0-2.3,1-2.3,2.2v16.5 c0,1.3,1.1,2.3,2.3,2.2H34.4z"
+        fill="currentColor"
+      ></path>
     </svg>
   );
 };
