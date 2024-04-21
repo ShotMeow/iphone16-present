@@ -34,6 +34,7 @@ const ControlPanel: FC<Props> = ({
             },
             "size-2 rounded-full bg-white/30 transition-all duration-1000",
           )}
+          aria-label="Select first highlight movie"
         />
         <button
           onClick={() => {
@@ -46,6 +47,7 @@ const ControlPanel: FC<Props> = ({
             },
             "size-2 rounded-full bg-white/30 transition-all duration-1000",
           )}
+          aria-label="Select second highlight movie"
         />
         <button
           onClick={() => {
@@ -58,6 +60,7 @@ const ControlPanel: FC<Props> = ({
             },
             "size-2 rounded-full bg-white/30 transition-all duration-1000",
           )}
+          aria-label="Select third highlight movie"
         />
         <button
           onClick={() => {
@@ -70,6 +73,7 @@ const ControlPanel: FC<Props> = ({
             },
             "size-2 rounded-full bg-white/30 transition-all duration-1000",
           )}
+          aria-label="Select fourth highlight movie"
         />
       </div>
       <button
@@ -84,6 +88,13 @@ const ControlPanel: FC<Props> = ({
           }
         }}
         className="flex size-14 items-center justify-center rounded-full bg-white/10 p-2 transition-all hover:bg-white/15 active:bg-white/5"
+        aria-label={
+          videoState === "playing"
+            ? "Pause video"
+            : videoState === "paused"
+              ? "Play video"
+              : "Replay video"
+        }
       >
         {videoState === "playing" ? (
           <Pause />

@@ -5,7 +5,7 @@ import Apple from "@/shared/ui/icons/Apple";
 
 const Logo: FC = () => {
   return (
-    <Link className="text-white" href="/">
+    <Link className="text-white" href="/" aria-label="Home page">
       <Apple />
     </Link>
   );
