@@ -49,8 +49,9 @@ const HighlightSlide: FC<PropsWithChildren<Props>> = ({
           onEnded={() => {
             if (swiper.isEnd) {
               setVideoState("ended");
+            } else {
+              swiper.slideNext();
             }
-            swiper.slideNext();
           }}
         >
           <source src={videoUrl} type="video/mp4" />
