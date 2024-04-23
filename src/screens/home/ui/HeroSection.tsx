@@ -59,6 +59,7 @@ const HeroSection: FC = () => {
         }}
         autoPlay
         muted
+        className="h-[360px]"
         playsInline
         key={videoUrl}
       >
