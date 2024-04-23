@@ -18,10 +18,10 @@ const HeroSection: FC = () => {
 
   useEffect(() => {
     if (isMobile) {
-      setPosterUrl("/images/endframes/hero-mobile.jpg");
+      setPosterUrl("/images/endframes/hero-mobile.webp");
       setVideoUrl("/videos/hero-mobile.mp4");
     } else {
-      setPosterUrl("/images/endframes/hero-desktop.jpg");
+      setPosterUrl("/images/endframes/hero-desktop.webp");
       setVideoUrl("/videos/hero-desktop.mp4");
     }
   }, [isMobile]);

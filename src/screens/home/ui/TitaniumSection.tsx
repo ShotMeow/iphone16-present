@@ -57,7 +57,7 @@ const TitaniumSection: FC = () => {
               transition={{
                 duration: 1,
               }}
-              src="/images/explore-1.jpg"
+              src="/images/explore-1.webp"
               alt="Camera Photo"
               className="size-full object-cover"
               width={964}
@@ -71,7 +71,7 @@ const TitaniumSection: FC = () => {
               transition={{
                 duration: 1,
               }}
-              src="/images/explore-2.jpg"
+              src="/images/explore-2.webp"
               alt="Material Photo"
               className="size-full object-cover"
               width={1028}
@@ -86,7 +86,7 @@ const TitaniumSection: FC = () => {
             }}
             className="col-span-2 text-base font-semibold text-zinc-400 md:text-xl lg:px-20 xl:col-span-1"
           >
-            iPhone 15 Pro is{" "}
+            iPhone 16 Pro is{" "}
             <span className="text-white">
               the first iPhone to feature an aerospace‑grade titanium design
             </span>
