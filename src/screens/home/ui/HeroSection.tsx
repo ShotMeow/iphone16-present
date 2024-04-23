@@ -35,7 +35,7 @@ const HeroSection: FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="container mb-8 flex min-h-[calc(100dvh-56px)] flex-col items-center justify-center transition-all"
+      className="container mb-8 flex min-h-[calc(100vh-56px)] flex-col items-center justify-center"
     >
       <motion.h1
         initial={{ opacity: 0 }}
