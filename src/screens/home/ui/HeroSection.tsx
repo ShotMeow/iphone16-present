@@ -4,32 +4,27 @@ import { motion } from "framer-motion";
 
 import Button from "@/shared/ui/Button";
 import { useIntersection } from "@/shared/hooks/useIntersection";
+import { useDevice } from "@/shared/hooks/useDevice";
 
 const HeroSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { isMobile } = useDevice();
 
   const { isIntersecting } = useIntersection(sectionRef);
 
   const [videoUrl, setVideoUrl] = useState<string>("");
+  const [posterUrl, setPosterUrl] = useState<string>("");
 
   useEffect(() => {
-    const handleVideoSrcSet = () => {
-      if (window.innerWidth < 1200) {
-        setVideoUrl("/videos/hero-mobile.mp4");
-      } else {
-        setVideoUrl("/videos/hero-desktop.mp4");
-      }
-    };
-
-    handleVideoSrcSet();
-
-    window.addEventListener("resize", handleVideoSrcSet);
-
-    return () => {
-      window.removeEventListener("resize", handleVideoSrcSet);
-    };
-  }, []);
+    if (isMobile) {
+      setPosterUrl("/images/endframes/hero-mobile.webp");
+      setVideoUrl("/videos/hero-mobile.mp4");
+    } else {
+      setPosterUrl("/images/endframes/hero-desktop.webp");
+      setVideoUrl("/videos/hero-desktop.mp4");
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     if (videoRef.current && isIntersecting) {
@@ -44,7 +39,7 @@ const HeroSection: FC = () => {
     >
       <motion.h1
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{
           duration: 1,
           delay: 2,
@@ -55,8 +50,9 @@ const HeroSection: FC = () => {
       </motion.h1>
       <motion.video
         ref={videoRef}
+        poster={posterUrl}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{
           duration: 1,
           delay: 0.3,
@@ -70,7 +66,7 @@ const HeroSection: FC = () => {
       </motion.video>
       <motion.div
         initial={{ opacity: 0, translateY: 150 }}
-        animate={{ opacity: 1, translateY: 0 }}
+        whileInView={{ opacity: 1, translateY: 0 }}
         transition={{
           type: "spring",
           duration: 0.8,

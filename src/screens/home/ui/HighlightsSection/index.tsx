@@ -1,5 +1,5 @@
 "use client";
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Watch from "@/shared/ui/icons/Watch";
@@ -14,6 +14,10 @@ const HighlightsSection: FC = () => {
   const [videoState, setVideoState] = useState<"playing" | "paused" | "ended">(
     "playing",
   );
+
+  useEffect(() => {
+    setVideoState(isIntersecting ? "playing" : "paused");
+  }, [isIntersecting]);
 
   return (
     <section ref={sectionRef} className="overflow-x-hidden bg-zinc-900 py-20">
@@ -41,12 +45,10 @@ const HighlightsSection: FC = () => {
             </button>
           </motion.div>
         </header>
-        {isIntersecting && (
-          <HighlightSlider
-            videoState={videoState}
-            setVideoState={setVideoState}
-          />
-        )}
+        <HighlightSlider
+          videoState={videoState}
+          setVideoState={setVideoState}
+        />
       </div>
     </section>
   );
