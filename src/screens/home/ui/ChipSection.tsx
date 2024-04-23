@@ -20,7 +20,7 @@ const ChipSection: FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="container my-20 flex flex-col items-center"
+      className="container my-20 flex flex-col items-center overflow-x-hidden"
     >
       <MotionImage
         drag
