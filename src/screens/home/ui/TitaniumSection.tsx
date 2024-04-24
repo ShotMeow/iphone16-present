@@ -1,8 +1,9 @@
 "use client";
-import { FC, useEffect, useRef } from "react";
+import { type FC, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useIntersection } from "@/shared/hooks/useIntersection";
 import { motion } from "framer-motion";
+
+import { useIntersection } from "@/shared/hooks/useIntersection";
 
 const MotionImage = motion(Image);
 

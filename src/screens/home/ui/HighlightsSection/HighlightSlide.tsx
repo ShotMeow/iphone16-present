@@ -1,7 +1,7 @@
 import {
   type Dispatch,
-  FC,
-  PropsWithChildren,
+  type FC,
+  type PropsWithChildren,
   type SetStateAction,
   useEffect,
   useRef,

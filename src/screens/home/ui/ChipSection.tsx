@@ -1,21 +1,17 @@
 "use client";
-import { FC, useEffect, useRef } from "react";
+import { type FC, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useIntersection } from "@/shared/hooks/useIntersection";
+
+import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 
 const MotionImage = motion(Image);
 
 const ChipSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { isIntersecting } = useIntersection(sectionRef);
 
-  useEffect(() => {
-    if (videoRef.current && isIntersecting) {
-      videoRef.current.currentTime = 0;
-    }
-  }, [isIntersecting]);
+  useVideoReplay(sectionRef, videoRef);
 
   return (
     <section
@@ -23,8 +19,6 @@ const ChipSection: FC = () => {
       className="container my-20 flex flex-col items-center overflow-x-hidden"
     >
       <MotionImage
-        drag
-        dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
         initial={{ opacity: 0, translateY: 100 }}
         whileInView={{
           opacity: 1,
@@ -33,7 +27,7 @@ const ChipSection: FC = () => {
         transition={{
           duration: 1,
         }}
-        className="cursor-pointer rounded-md"
+        className="rounded-md"
         src="/images/a17-chip.webp"
         alt="A17 Chip pucture"
         width={160}
@@ -84,7 +78,6 @@ const ChipSection: FC = () => {
             height={680}
           />
           <video
-            poster="/images/endframes/honkai.webp"
             ref={videoRef}
             className="absolute left-0 top-0 -z-10 size-full rounded-[14%] object-cover p-1 sm:rounded-[16%] sm:p-2"
             autoPlay

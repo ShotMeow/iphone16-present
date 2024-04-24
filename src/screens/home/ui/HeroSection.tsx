@@ -1,36 +1,26 @@
 "use client";
-import { FC, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Button from "@/shared/ui/Button";
-import { useIntersection } from "@/shared/hooks/useIntersection";
+
 import { useDevice } from "@/shared/hooks/useDevice";
+import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 
 const HeroSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { isMobile } = useDevice();
 
-  const { isIntersecting } = useIntersection(sectionRef);
-
   const [videoUrl, setVideoUrl] = useState<string>("");
-  const [posterUrl, setPosterUrl] = useState<string>("");
 
   useEffect(() => {
-    if (isMobile) {
-      setPosterUrl("/images/endframes/hero-mobile.webp");
-      setVideoUrl("/videos/hero-mobile.mp4");
-    } else {
-      setPosterUrl("/images/endframes/hero-desktop.webp");
-      setVideoUrl("/videos/hero-desktop.mp4");
-    }
+    isMobile
+      ? setVideoUrl("/videos/hero-mobile.mp4")
+      : setVideoUrl("/videos/hero-desktop.mp4");
   }, [isMobile]);
 
-  useEffect(() => {
-    if (videoRef.current && isIntersecting) {
-      videoRef.current.currentTime = 0;
-    }
-  }, [isIntersecting]);
+  useVideoReplay(sectionRef, videoRef);
 
   return (
     <section
@@ -50,7 +40,6 @@ const HeroSection: FC = () => {
       </motion.h1>
       <motion.video
         ref={videoRef}
-        poster={posterUrl}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{

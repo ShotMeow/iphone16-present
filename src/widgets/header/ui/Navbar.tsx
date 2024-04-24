@@ -3,11 +3,13 @@ import { type FC, useEffect } from "react";
 import Link from "next/link";
 import { stagger, useAnimate } from "framer-motion";
 
-import Logo from "@/widgets/header/ui/Logo";
+import Logo from "@/shared/ui/Logo";
 import Search from "@/shared/ui/icons/Search";
 import Bag from "@/shared/ui/icons/Bag";
 
 import { useDevice } from "@/shared/hooks/useDevice";
+
+import { linksData } from "../data/links.data";
 
 const Navbar: FC = () => {
   const [scope, animate] = useAnimate();
@@ -26,39 +28,11 @@ const Navbar: FC = () => {
         {isDesktop && (
           <li className="w-full">
             <ul className="flex w-full items-center justify-between">
-              <li>
-                <Link href="/">Store</Link>
-              </li>
-              <li>
-                <Link href="/">Mac</Link>
-              </li>
-              <li>
-                <Link href="/">iPad</Link>
-              </li>
-              <li>
-                <Link href="/">iPhone</Link>
-              </li>
-              <li>
-                <Link href="/">Watch</Link>
-              </li>
-              <li>
-                <Link href="/">Vision</Link>
-              </li>
-              <li>
-                <Link href="/">AirPods</Link>
-              </li>
-              <li>
-                <Link href="/">TV & Home</Link>
-              </li>
-              <li>
-                <Link href="/">Entertainment</Link>
-              </li>
-              <li>
-                <Link href="/">Accessories</Link>
-              </li>
-              <li>
-                <Link href="/">Support</Link>
-              </li>
+              {linksData.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.url}>{link.name}</Link>
+                </li>
+              ))}
             </ul>
           </li>
         )}

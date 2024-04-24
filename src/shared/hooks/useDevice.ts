@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export const useDevice = () => {
+export const useDevice = (): { isDesktop: boolean; isMobile: boolean } => {
   const hasWindow = typeof window !== "undefined";
 
-  const [isDesktop, setIsDesktop] = useState<boolean>();
-  const [isMobile, setIsMobile] = useState<boolean>();
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     if (hasWindow) {

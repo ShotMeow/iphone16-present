@@ -1,9 +1,11 @@
 import type { FC, PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
 
 import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +21,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
