@@ -1,6 +1,8 @@
 import { type RefObject, useEffect, useState } from "react";
 
-export const useIntersection = (ref: RefObject<HTMLElement>) => {
+export const useIntersection = (
+  ref: RefObject<HTMLElement>,
+): { isIntersecting: boolean } => {
   const [isIntersecting, setIntersecting] = useState<boolean>(true);
 
   useEffect(() => {
