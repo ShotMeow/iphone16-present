@@ -3,6 +3,7 @@ import { type FC, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Button from "@/shared/ui/Button";
+
 import { useDevice } from "@/shared/hooks/useDevice";
 import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 

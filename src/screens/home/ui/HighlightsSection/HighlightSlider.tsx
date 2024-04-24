@@ -1,6 +1,5 @@
 import { type Dispatch, type FC, type SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -14,7 +13,6 @@ interface Props {
 
 const HighlightSlider: FC<Props> = ({ videoState, setVideoState }) => {
   const [activeSlide, setActiveSlide] = useState(0);
-
   return (
     <motion.div
       initial={{ opacity: 0, translateY: 100 }}

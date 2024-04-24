@@ -2,6 +2,7 @@
 import { type FC, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 
 const MotionImage = motion(Image);

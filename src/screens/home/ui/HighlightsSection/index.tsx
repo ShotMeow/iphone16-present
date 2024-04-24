@@ -1,12 +1,13 @@
 "use client";
-import { FC, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Watch from "@/shared/ui/icons/Watch";
 import Arrow from "@/shared/ui/icons/Arrow";
 
-import HighlightSlider from "./HighlightSlider";
 import { useIntersection } from "@/shared/hooks/useIntersection";
+
+import HighlightSlider from "./HighlightSlider";
 
 const HighlightsSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

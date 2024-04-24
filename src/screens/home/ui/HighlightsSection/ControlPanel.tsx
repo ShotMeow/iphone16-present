@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import type { Dispatch, FC, SetStateAction } from "react";
 import { motion } from "framer-motion";
 import { useSwiper } from "swiper/react";
 import classNames from "classnames";
