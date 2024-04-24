@@ -20,7 +20,7 @@ const HeroSection: FC = () => {
       : setVideoUrl("/videos/hero-desktop.mp4");
   }, [isMobile]);
 
-  useVideoReplay(sectionRef, videoRef);
+  useVideoReplay({ videoRef, parentRef: sectionRef });
 
   return (
     <section

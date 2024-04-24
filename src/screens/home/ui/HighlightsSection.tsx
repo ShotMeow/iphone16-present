@@ -1,27 +1,18 @@
 "use client";
-import { type FC, useEffect, useRef, useState } from "react";
+import type { FC } from "react";
 import { motion } from "framer-motion";
 
 import Watch from "@/shared/ui/icons/Watch";
 import Arrow from "@/shared/ui/icons/Arrow";
 
-import { useIntersection } from "@/shared/hooks/useIntersection";
-
-import HighlightSlider from "./HighlightSlider";
+import {
+  HighlightsSlider,
+  HighlightsSliderProvider,
+} from "@/features/highlights-slider";
 
 const HighlightsSection: FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { isIntersecting } = useIntersection(sectionRef);
-  const [videoState, setVideoState] = useState<"playing" | "paused" | "ended">(
-    "playing",
-  );
-
-  useEffect(() => {
-    setVideoState(isIntersecting ? "playing" : "paused");
-  }, [isIntersecting]);
-
   return (
-    <section ref={sectionRef} className="overflow-x-hidden bg-zinc-900 py-20">
+    <section className="overflow-x-hidden bg-zinc-900 py-20">
       <div className="container">
         <header className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center lg:gap-0">
           <motion.h2
@@ -46,10 +37,9 @@ const HighlightsSection: FC = () => {
             </button>
           </motion.div>
         </header>
-        <HighlightSlider
-          videoState={videoState}
-          setVideoState={setVideoState}
-        />
+        <HighlightsSliderProvider>
+          <HighlightsSlider />
+        </HighlightsSliderProvider>
       </div>
     </section>
   );
