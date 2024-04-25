@@ -11,14 +11,15 @@ const Fallback: FC = () => {
       animate={{
         opacity: 1,
       }}
-      className="flex h-full items-center justify-center"
+      className="absolute flex size-full h-full items-center justify-center"
     >
       <Image
-        src="/images/iphone-all-colors.webp"
-        alt="iPhone All Colors Overview"
-        className="w-1/2 opacity-80 blur-lg"
-        width={600}
-        height={936}
+        src="/images/iphone-back.webp"
+        alt="iPhone Back Overview"
+        className="pointer-events-none size-full object-contain p-28 opacity-80 blur-lg"
+        priority={true}
+        width={220}
+        height={526}
       />
       <p className="absolute text-center text-3xl font-semibold">
         Click and turn to explore iPhone.
