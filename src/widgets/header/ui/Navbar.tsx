@@ -9,7 +9,7 @@ import Bag from "@/shared/ui/icons/Bag";
 
 import { useDevice } from "@/shared/hooks/useDevice";
 
-import { linksData } from "../data/links.data";
+import { headerLinks } from "../constants/headerLinks";
 
 const Navbar: FC = () => {
   const [scope, animate] = useAnimate();
@@ -28,7 +28,7 @@ const Navbar: FC = () => {
         {isDesktop && (
           <li className="w-full">
             <ul className="flex w-full items-center justify-between">
-              {linksData.map((link) => (
+              {headerLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.url}>{link.name}</Link>
                 </li>

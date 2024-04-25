@@ -1,11 +1,16 @@
 import { useIntersection } from "@/shared/hooks/useIntersection";
 import { RefObject, useEffect } from "react";
 
-export const useVideoReplay = (
-  sectionRef: RefObject<HTMLElement>,
-  videoRef: RefObject<HTMLVideoElement>,
-): void => {
-  const { isIntersecting } = useIntersection(sectionRef);
+interface videoReplayProps {
+  videoRef: RefObject<HTMLVideoElement>;
+  parentRef?: RefObject<HTMLElement>;
+}
+
+export const useVideoReplay = ({
+  videoRef,
+  parentRef,
+}: videoReplayProps): void => {
+  const { isIntersecting } = useIntersection(parentRef || videoRef);
 
   useEffect(() => {
     if (videoRef.current && isIntersecting) {

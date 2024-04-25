@@ -8,16 +8,12 @@ import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 const MotionImage = motion(Image);
 
 const ChipSection: FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useVideoReplay(sectionRef, videoRef);
+  useVideoReplay({ videoRef });
 
   return (
-    <section
-      ref={sectionRef}
-      className="container my-20 flex flex-col items-center overflow-x-hidden"
-    >
+    <section className="container my-20 flex flex-col items-center overflow-x-hidden">
       <MotionImage
         initial={{ opacity: 0, translateY: 100 }}
         whileInView={{
@@ -82,6 +78,7 @@ const ChipSection: FC = () => {
             className="absolute left-0 top-0 -z-10 size-full rounded-[14%] object-cover p-1 sm:rounded-[16%] sm:p-2"
             autoPlay
             muted
+            playsInline
           >
             <source src="/videos/honkai.mp4" type="video/mp4" />
           </video>

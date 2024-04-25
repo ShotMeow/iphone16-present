@@ -1,27 +1,28 @@
 import {
-  type Dispatch,
   type FC,
   type PropsWithChildren,
-  type SetStateAction,
+  useContext,
   useEffect,
   useRef,
 } from "react";
 import { useSwiper } from "swiper/react";
+import { HighlightsSliderContext } from "@/features/highlights-slider/context";
+import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
 
 interface Props {
   videoPlaying: boolean;
   videoPaused: boolean;
-  videoUrl: string;
-  setVideoState: Dispatch<SetStateAction<"playing" | "paused" | "ended">>;
+  videoSrc: string;
 }
 
-const HighlightSlide: FC<PropsWithChildren<Props>> = ({
+const Slide: FC<PropsWithChildren<Props>> = ({
   videoPlaying,
   videoPaused,
-  videoUrl,
-  setVideoState,
+  videoSrc,
   children,
 }) => {
+  const { setVideoState } = useContext(HighlightsSliderContext);
+
   const swiper = useSwiper();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -35,9 +36,11 @@ const HighlightSlide: FC<PropsWithChildren<Props>> = ({
     }
   }, [videoPlaying, videoPaused]);
 
+  useVideoReplay({ videoRef });
+
   return (
     <>
-      <h3 className="relative z-20 text-xl font-semibold md:text-3xl">
+      <h3 className="relative z-20 text-xl font-semibold md:text-3xl whitespace-pre-line">
         {children}
       </h3>
       <div>
@@ -54,11 +57,11 @@ const HighlightSlide: FC<PropsWithChildren<Props>> = ({
             }
           }}
         >
-          <source src={videoUrl} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
       </div>
     </>
   );
 };
 
-export default HighlightSlide;
+export default Slide;

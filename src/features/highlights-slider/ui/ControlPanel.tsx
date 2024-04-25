@@ -1,4 +1,4 @@
-import type { Dispatch, FC, SetStateAction } from "react";
+import { type FC, useContext } from "react";
 import { motion } from "framer-motion";
 import { useSwiper } from "swiper/react";
 import classNames from "classnames";
@@ -7,19 +7,12 @@ import Pause from "@/shared/ui/icons/Pause";
 import Play from "@/shared/ui/icons/Play";
 import Replay from "@/shared/ui/icons/Replay";
 
-interface Props {
-  videoState: "playing" | "paused" | "ended";
-  setVideoState: Dispatch<SetStateAction<"playing" | "paused" | "ended">>;
-  activeSlide: number;
-  setActiveSlide: Dispatch<SetStateAction<number>>;
-}
+import { HighlightsSliderContext } from "../context";
 
-const ControlPanel: FC<Props> = ({
-  videoState,
-  setVideoState,
-  activeSlide,
-  setActiveSlide,
-}) => {
+const ControlPanel: FC = () => {
+  const { setActiveSlide, setVideoState, activeSlide, videoState } = useContext(
+    HighlightsSliderContext,
+  );
   const swiper = useSwiper();
 
   return (
