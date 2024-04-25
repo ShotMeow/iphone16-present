@@ -79,15 +79,15 @@ const OverviewDesktop: FC = () => {
       >
         <p className="text-center text-sm font-light">{model.title}</p>
         <div className="flex items-center justify-center gap-4">
-          <ul className="flex items-center rounded-full bg-zinc-900 p-4">
+          <ul className="flex items-center rounded-full gap-3 bg-zinc-900 p-4">
             {iphoneModels.map((item) => (
-              <li key={item.id}>
+              <li className="size-6" key={item.id}>
                 <button
                   className={classNames(
                     {
                       "border-blue-600 border-4": item.id === model.id,
                     },
-                    "mx-2 size-6 cursor-pointer rounded-full transition-all",
+                    "w-full h-full cursor-pointer rounded-full transition-all",
                   )}
                   style={{ backgroundColor: item.color[0] }}
                   onClick={() => setModel(item)}
