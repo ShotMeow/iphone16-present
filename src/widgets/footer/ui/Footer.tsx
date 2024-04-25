@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import Link from "next/link";
-import { linksData } from "../data/links.data";
+import { footerLinks } from "../constants/footerLinks";
 
 const Footer: FC = () => {
   return (
@@ -22,10 +22,10 @@ const Footer: FC = () => {
           Copright @ 2024 Apple Inc. All rights reserved.
         </p>
         <ul className="flex flex-wrap items-center gap-4 text-xs text-zinc-400 sm:gap-0">
-          {linksData.map((link, index) => (
+          {footerLinks.map((link, index) => (
             <li key={link.name}>
               <Link href={link.url}>{link.name}</Link>
-              {index !== linksData.length - 1 && (
+              {index !== footerLinks.length - 1 && (
                 <span className="mx-4 hidden text-zinc-600 sm:inline">|</span>
               )}
             </li>

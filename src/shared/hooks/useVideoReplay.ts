@@ -10,7 +10,7 @@ export const useVideoReplay = ({
   videoRef,
   parentRef,
 }: videoReplayProps): void => {
-  const { isIntersecting } = useIntersection(parentRef ? parentRef : videoRef);
+  const { isIntersecting } = useIntersection(parentRef || videoRef);
 
   useEffect(() => {
     if (videoRef.current && isIntersecting) {

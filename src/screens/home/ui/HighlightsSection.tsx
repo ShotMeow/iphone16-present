@@ -27,7 +27,7 @@ const HighlightsSection: FC = () => {
             initial={{ opacity: 0, translateX: 100 }}
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-6"
+            className="flex flex-col gap-2 xl:flex-row xl:items-center xl:gap-6"
           >
             <button className="flex items-center gap-2 text-xl text-blue-500 hover:underline">
               Watch the film <Watch />

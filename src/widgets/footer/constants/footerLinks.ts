@@ -1,6 +1,6 @@
-import { Link } from "../types/links.types";
+import { Link } from "../types/footerLinks.types";
 
-export const linksData: Link[] = [
+export const footerLinks: Link[] = [
   {
     name: "Privacy Policy",
     url: "#",

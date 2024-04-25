@@ -2,7 +2,7 @@
   "name": "iphone16-present",
   "author": "Kai Goldman",
   "description": "Recreate the Apple iPhone 16 website, combining Framer Motion animations and Three.js 3D effects.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,23 +13,26 @@
   "dependencies": {
     "next": "14.2.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "three": "^0.163.0"
   },
   "devDependencies": {
-    "framer-motion": "^11.0.28",
-    "swiper": "^11.1.1",
-    "tailwindcss": "^3.4.1",
-    "postcss": "^8",
-    "typescript": "^5",
+    "@react-three/drei": "^9.105.4",
+    "@react-three/fiber": "^8.16.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "classnames": "^2.5.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "framer-motion": "^11.0.28",
+    "postcss": "^8",
     "prettier": "^3.2.5",
-    "classnames": "^2.5.1"
+    "swiper": "^11.1.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

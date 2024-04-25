@@ -6,10 +6,10 @@ import "swiper/css";
 import Slide from "./Slide";
 import ControlPanel from "./ControlPanel";
 import { HighlightsSliderContext } from "../context";
-import { highlightsSlides } from "../data/slides";
+import { highlightsSlides } from "../constants/slides";
 
 const HighlightsSlider: FC = () => {
-  const { setActiveSlide, setVideoState, activeSlide, videoState } = useContext(
+  const { setActiveSlide, activeSlide, videoState } = useContext(
     HighlightsSliderContext,
   );
 
