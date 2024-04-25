@@ -9,3 +9,10 @@ export interface IphoneModelType {
   color: string[];
   material: string;
 }
+
+export interface IphoneColorType {
+  id: number;
+  title: string;
+  imageSrc: string;
+  color: string | string[];
+}

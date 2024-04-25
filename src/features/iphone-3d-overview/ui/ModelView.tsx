@@ -20,6 +20,7 @@ const ModelView: FC<Props> = ({ index, controlRef, model }) => {
       <Lights />
       <OrbitControls
         makeDefault
+        autoRotate
         ref={controlRef}
         enableZoom={false}
         enablePan={false}
