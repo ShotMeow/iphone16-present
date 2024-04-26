@@ -31,7 +31,7 @@ const OverviewMobile: FC = () => {
                   "border-blue-600 border-4":
                     item.imageSrc === currentColor.imageSrc,
                 },
-                "w-full h-full flex-shrink-0 cursor-pointer rounded-full transition-all",
+                "mx-2 w-full h-full flex-shrink-0 cursor-pointer rounded-full transition-all",
               )}
               style={{
                 background: Array.isArray(item.color)
