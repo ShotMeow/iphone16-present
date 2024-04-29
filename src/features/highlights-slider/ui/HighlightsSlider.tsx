@@ -32,6 +32,7 @@ const HighlightsSlider: FC = () => {
               videoPaused={activeSlide !== index || videoState === "paused"}
               videoPlaying={activeSlide === index && videoState === "playing"}
               videoSrc={slide.videoSrc}
+              startFrameSrc={slide.startFrameSrc}
             >
               {slide.title}
             </Slide>

@@ -12,4 +12,5 @@ export interface HighlightSliderContextType {
 export interface SlideType {
   title: string;
   videoSrc: string;
+  startFrameSrc: string;
 }

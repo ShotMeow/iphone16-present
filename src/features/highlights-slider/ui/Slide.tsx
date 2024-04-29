@@ -1,6 +1,7 @@
 import {
   type FC,
   type PropsWithChildren,
+  Suspense,
   useContext,
   useEffect,
   useRef,
@@ -8,17 +9,20 @@ import {
 import { useSwiper } from "swiper/react";
 import { HighlightsSliderContext } from "@/features/highlights-slider/context";
 import { useVideoReplay } from "@/shared/hooks/useVideoReplay";
+import Image from "next/image";
 
 interface Props {
   videoPlaying: boolean;
   videoPaused: boolean;
   videoSrc: string;
+  startFrameSrc: string;
 }
 
 const Slide: FC<PropsWithChildren<Props>> = ({
   videoPlaying,
   videoPaused,
   videoSrc,
+  startFrameSrc,
   children,
 }) => {
   const { setVideoState } = useContext(HighlightsSliderContext);
@@ -40,25 +44,37 @@ const Slide: FC<PropsWithChildren<Props>> = ({
 
   return (
     <>
-      <h3 className="relative z-20 text-xl font-semibold md:text-3xl whitespace-pre-line">
+      <h3 className="relative z-20 whitespace-pre-line text-xl font-semibold md:text-3xl">
         {children}
       </h3>
       <div>
-        <video
-          ref={videoRef}
-          className="pointer-events-none absolute left-0 top-0 size-full rounded-xl object-cover"
-          muted
-          playsInline
-          onEnded={() => {
-            if (swiper.isEnd) {
-              setVideoState("ended");
-            } else {
-              swiper.slideNext();
-            }
-          }}
+        <Suspense
+          fallback={
+            <Image
+              className="absolute left-0 top-0 size-full rounded-xl object-cover"
+              src={startFrameSrc}
+              alt="Fallback Image"
+              width={1920}
+              height={1080}
+            />
+          }
         >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+          <video
+            ref={videoRef}
+            className="pointer-events-none absolute left-0 top-0 size-full rounded-xl object-cover"
+            muted
+            playsInline
+            onEnded={() => {
+              if (swiper.isEnd) {
+                setVideoState("ended");
+              } else {
+                swiper.slideNext();
+              }
+            }}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        </Suspense>
       </div>
     </>
   );

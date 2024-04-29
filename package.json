@@ -2,7 +2,7 @@
   "name": "iphone16-present",
   "author": "Kai Goldman",
   "description": "Recreate the Apple iPhone 16 website, combining Framer Motion animations and Three.js 3D effects.",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
