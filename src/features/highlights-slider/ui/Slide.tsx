@@ -40,7 +40,7 @@ const Slide: FC<PropsWithChildren<Props>> = ({
 
   return (
     <>
-      <h3 className="relative z-20 text-xl font-semibold md:text-3xl whitespace-pre-line">
+      <h3 className="relative z-20 whitespace-pre-line text-xl font-semibold md:text-3xl">
         {children}
       </h3>
       <div>
